@@ -77,22 +77,22 @@ grid.appendChild(ball)
 drawBall()
 
 //move user
-// function moveUser(e) {
+function moveUser(e) {
  
-//   switch(e.key){
-//     case 'ArrowLeft':
-//      if(currentPosition[0] > 0){
-//       currentPosition[0] -= 10
-//       drawUser()
-//      }
-//       break;
-//     case 'ArrowRight':
-//       if(currentPosition[0] < boardWidth - blockWidth){
-//         currentPosition[0] += 10
-//         drawUser()
-//       }
-//       break;}
-// }
+  switch(e.key){
+    case 'ArrowLeft':
+     if(currentPosition[0] > 0){
+      currentPosition[0] -= 10
+      drawUser()
+     }
+      break;
+    case 'ArrowRight':
+      if(currentPosition[0] < boardWidth - blockWidth){
+        currentPosition[0] += 10
+        drawUser()
+      }
+      break;}
+}
 function moveLeft(e) {
 
   if(currentPosition[0] > 0){
@@ -116,7 +116,7 @@ leftBtn.addEventListener('click', function moveLeft(e) {
  }
  })
 rightBtn.addEventListener('click', moveRight)
-// document.addEventListener('keydown', moveUser)
+document.addEventListener('keydown', moveUser)
 
 
 //draw the user
