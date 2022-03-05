@@ -1,5 +1,7 @@
 const grid = document.querySelector('.grid')
 const scoreDisplay = document.querySelector('#score')
+const leftBtn = document.querySelector('#left-btn')
+const rightBtn = document.querySelector('#right-btn')
 const blockWidth = 100
 const blockHeight = 20
 const ballDiameter = 20
@@ -14,6 +16,7 @@ const ballStart = [270,40]
 let ballCurrentPosition = ballStart
 let timerId
 let score= 0
+var action = false;
 
 
 //my Block
@@ -74,22 +77,46 @@ grid.appendChild(ball)
 drawBall()
 
 //move user
-function moveUser(e) {
-  switch(e.key){
-    case 'ArrowLeft':
-     if(currentPosition[0] > 0){
-      currentPosition[0] -= 10
-      drawUser()
-     }
-      break;
-    case 'ArrowRight':
-      if(currentPosition[0] < boardWidth - blockWidth){
-        currentPosition[0] += 10
-        drawUser()
-      }
-      break;}
+// function moveUser(e) {
+ 
+//   switch(e.key){
+//     case 'ArrowLeft':
+//      if(currentPosition[0] > 0){
+//       currentPosition[0] -= 10
+//       drawUser()
+//      }
+//       break;
+//     case 'ArrowRight':
+//       if(currentPosition[0] < boardWidth - blockWidth){
+//         currentPosition[0] += 10
+//         drawUser()
+//       }
+//       break;}
+// }
+function moveLeft(e) {
+
+  if(currentPosition[0] > 0){
+    currentPosition[0] -= 10
+    drawUser()
+   
+ }
+ }
+function moveRight(e) {
+  if(currentPosition[0] < boardWidth - blockWidth){
+            currentPosition[0] += 10
+            drawUser()
+          }
 }
-document.addEventListener('keydown', moveUser)
+leftBtn.addEventListener('click', function moveLeft(e) {
+
+  if(currentPosition[0] > 0){
+    currentPosition[0] -= 10
+    drawUser()
+   
+ }
+ })
+rightBtn.addEventListener('click', moveRight)
+// document.addEventListener('keydown', moveUser)
 
 
 //draw the user
